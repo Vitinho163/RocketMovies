@@ -2,7 +2,7 @@
 
 ![RocketMovies Screenshot](https://imgur.com/HeXCJws.png)
 
-Este é o repositório do front-end da aplicação RocketMovies, uma plataforma para explorar informações sobre filmes e séries. O projeto foi desenvolvido por João Victor como parte de um curso ministrado pelo professor Rodrigo.
+Este é o repositório do front-end da aplicação RocketMovies, uma plataforma para explorar informações sobre filmes e séries. O projeto foi desenvolvido por João Victor como parte de um curso da Rocketseat ministrado pelo professor Rodrigo.
 
 ## Figma
 
