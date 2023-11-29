@@ -1,10 +1,14 @@
 import { Container, Profile } from './styles'
 import { useAuth } from '../../hooks/auth';
 
+import { api } from '../../services/api';
+
 import { Link } from 'react-router-dom'
 import { Input } from '../Input'
 export function Header() {
-    const { signOut } = useAuth();
+    const { signOut, user } = useAuth();
+
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
     return (
         <Container>
@@ -12,10 +16,10 @@ export function Header() {
             <Input placeholder="Pesquisar pelo título" />
             <Profile to="/profile">
                 <div>
-                    <strong>João Victor</strong>
+                    <strong>{user.name}</strong>
                     <Link onClick={signOut} >sair</Link>
                 </div>
-                <img src="https://github.com/vitinho163.png" alt="foto do perfil" />
+                <img src={avatarUrl} alt={user.name} />
             </Profile>
         </Container>
     )
