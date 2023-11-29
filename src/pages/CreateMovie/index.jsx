@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { FiArrowLeft, FiPlus, FiX } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { ButtonText } from '../../components/ButtonText'
+import { NoteItem } from '../../components/NoteItem';
 import { Header } from '../../components/Header'
 import { Input } from '../../components/Input'
 import { Section } from '../../components/Section'
@@ -9,6 +11,19 @@ import { Tag } from '../../components/Tag'
 import { Container, Form } from './styles'
 
 export function CreateMovie() {
+    const [tags, setTags] = useState([]);
+    const [newTag, setNewTag] = useState("");
+
+    function handleAddTag() {
+        setTags(prevState => [...prevState, newTag]);
+        setNewTag("");
+    }
+
+    function handleRemoveTag(deleted) {
+        setTags(prevState => prevState.filter(tag => tag !== deleted));
+    }
+
+
     return (
         <Container>
             <Header />
@@ -27,9 +42,25 @@ export function CreateMovie() {
                     </div>
                     <textarea placeholder='Observações' />
                     <h2>Marcadores</h2>
+
                     <div className='tagSpace'>
-                        <Tag title="React" icon={<FiX />} />
-                        <Tag title="Novo marcador" icon={<FiPlus />} />
+                    {
+                        tags.map((tag, index) => (
+                        <NoteItem 
+                            key={String(index)}
+                            value={tag}
+                            onClick={() => handleRemoveTag(tag)}
+                        />
+                        ))
+                    }
+
+                    <NoteItem 
+                        isNew 
+                        placeholder="Nova tag" 
+                        onChange={e => setNewTag(e.target.value)}
+                        value={newTag}
+                        onClick={handleAddTag}
+                    />
                     </div>
 
                     <div>
