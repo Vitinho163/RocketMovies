@@ -37,12 +37,7 @@ export function Home() {
                     onClick={() => handleDetails(note.id)}
                 />
             ))
-            }
-
-                
-
-                
-
+            }   
             </div>
         </Container>
     );

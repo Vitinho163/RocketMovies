@@ -1,5 +1,6 @@
 import { Container, Profile } from './styles'
 import { useAuth } from '../../hooks/auth';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
 import { api } from '../../services/api';
 
@@ -33,7 +34,7 @@ export function Header({ onNotesUpdate }) {
             <Profile to="/profile">
                 <div>
                     <strong>{user.name}</strong>
-                    <Link onClick={signOut} >sair</Link>
+                    <Link to="/" onClick={signOut} >sair</Link>
                 </div>
                 <img src={avatarUrl} alt={user.name} />
             </Profile>
