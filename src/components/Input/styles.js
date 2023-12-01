@@ -17,6 +17,7 @@ export const Container = styled.div`
     border: none;
     border-radius: 0.625rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
+    flex-grow: 1;
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_400};
