@@ -66,6 +66,7 @@ export const Form = styled.form`
     border-radius: 0.625rem;
 
     background: ${({ theme }) => theme.COLORS.BACKGROUND_INPUT};
+    color: white;
 
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_400};
